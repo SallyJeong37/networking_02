@@ -10,9 +10,10 @@ const App = () => {
   return (
     <NavigationContainer>
       <MainStack.Navigator>
-        <MainStack.Screen name='Movie' component={Movies} 
-        options={{title: "movieList"}}/>
-        <MainStack.Screen name='Detail' component={Detail} />
+        <MainStack.Screen name='Movie' component={Movies}
+          options={{ title: "movieList" }} />
+        <MainStack.Screen name='Detail' component={Detail}
+          options={({route})=> ({title: route.params.name})} />
       </MainStack.Navigator>
 
     </NavigationContainer>

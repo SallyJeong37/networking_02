@@ -47,7 +47,7 @@ const Movies = () => {
     return (
         <ScrollView style={styles.block}>
             {dataWan && dataWan.map(xiaoDataMing => (
-                <TouchableOpacity onPress={() => navigation.navigate('Detail', {id: xiaoDataMing.id})} key={xiaoDataMing.id}>
+                <TouchableOpacity onPress={() => navigation.navigate('Detail', {id: xiaoDataMing.id, name:xiaoDataMing.title})} key={xiaoDataMing.id}>
                     <View style={styles.viewContainer}>
 
                         <Text style={styles.title}>{xiaoDataMing.title}</Text>
