@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Movies = () => {
+
+    const navigation = useNavigation();
 
     // 6.
     const [dataWan, setDataWan] = useState([])  //const [movies, setMovies] = useState("",[],0,{})
@@ -44,11 +47,8 @@ const Movies = () => {
     return (
         <ScrollView style={styles.block}>
             {dataWan && dataWan.map(xiaoDataMing => (
-                <TouchableOpacity onPress={() => Alert.alert(xiaoDataMing.title)}>
-                    <View
-                        key={xiaoDataMing.id}
-                        style={styles.viewContainer}
-                    >
+                <TouchableOpacity onPress={() => navigation.navigate('Detail', {id: xiaoDataMing.id})} key={xiaoDataMing.id}>
+                    <View style={styles.viewContainer}>
 
                         <Text style={styles.title}>{xiaoDataMing.title}</Text>
                         <View style={styles.infoBox}>
